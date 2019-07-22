@@ -147,7 +147,7 @@ def main():
     path = os.path.dirname(sys.argv[0])
     if len(path) > 1:
         path += '/'
-    path += '/recharge2.ini'
+    path += '/recharge.ini'
     print("Reading configuration from " + path + "\n")
     config.read(path)
     # iterate through list of coins
