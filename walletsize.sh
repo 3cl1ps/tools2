@@ -35,6 +35,7 @@ function show_walletsize () {
     printf "[%8s] %16b\n" $1 $OUTSTR
   else
     OUTSTR=${GREEN}$OUTSTR${RESET}
+    printf "[%8s] %16b\n" $1 $OUTSTR
   fi
 }
 
