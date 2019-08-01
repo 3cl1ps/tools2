@@ -27,7 +27,7 @@ nn_address=$KMDADDRESS
 nn_pubkey=$PUBKEY
 
 #Loop stats script every this many seconds
-sleepytime=600
+sleepytime=120
 #Else change to false if you don't want it to loop
 #sleepytime=false
 
