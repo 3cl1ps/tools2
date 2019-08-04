@@ -2,7 +2,7 @@
 cd "${BASH_SOURCE%/*}" || exit
 
 coin="KMD"
-daemon="komodod -notary -gen -genproclimit=1 -pubkey=${PUBKEY}"
+daemon="komodod -notary -pubkey=${PUBKEY}"
 daemon_process_regex="komodod.*\-notary"
 cli="komodo-cli"
 wallet_file="${HOME}/.komodo/wallet.dat"
