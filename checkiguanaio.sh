@@ -1,8 +1,7 @@
 #!/bin/bash
 # (c) fullmoon
 #myip=$(curl -s4 checkip.amazonaws.com)
-myip=$(hostname -I)
-echo $myip
+myip=$(hostname -I | sed 's/.$//')
 establishedconnections=$( ss -a | grep ":17776" | grep "ESTAB" | awk '{print $5 " "  $6}' )
 
 #echo $"$establishedconnections"
