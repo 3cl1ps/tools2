@@ -11,9 +11,9 @@ coinsfirst=(
 
 coinsthird=(
 'CHIPS $HOME/chips3/src/chips-cli $HOME/chips3/src/chipsd .chips'
-'GAME $HOME/game/src/gamecredits-cli $HOME/GameCredits/src/gamecreditsd .gamecredits'
+'GAME $HOME/game/src/gamecredits-cli $HOME/game/src/gamecreditsd .gamecredits'
 'EMC2 $HOME/einsteinium/src/einsteinium-cli $HOME/einsteinium/src/einsteiniumd .einsteinium'
-'GIN $HOME/gincoin/src/gincoin-cli $HOME/gincoin-core/src/gincoind .gincoincore'
+'GIN $HOME/gincoin/src/gincoin-cli $HOME/gincoin/src/gincoind .gincoincore'
 'VRSC $HOME/VerusCoin/src/verus $HOME/VerusCoin/src/verusd .komodo/VRSC'
 )
 
@@ -22,8 +22,8 @@ declare -A repos=(
 [KMD]="$HOME/komodo origin/beta"
 [SUPERNET]="$HOME/SuperNET origin/blackjok3r"
 [CHIPS]="$HOME/chips3 origin/dev"
-[GAME]="$HOME/GameCredits origin/master"
+[GAME]="$HOME/game origin/master"
 [EMC2]="$HOME/einsteinium origin/master"
-[GIN]="$HOME/gincoin-core origin/master"
+[GIN]="$HOME/gincoin origin/master"
 [VRSC]="$HOME/VerusCoin origin/master"
 )
