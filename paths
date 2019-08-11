@@ -20,10 +20,10 @@ coinsthird=(
 #for git checking - path and remote branch
 declare -A repos=(
 [KMD]="$HOME/komodo origin/beta"
-[SUPERNET]="$HOME/SuperNET origin/beta_season3"
+[SUPERNET]="$HOME/SuperNET origin/blackjok3r"
 [CHIPS]="$HOME/chips3 origin/dev"
-[GAME]="$HOME/game origin/master"
+[GAME]="$HOME/GameCredits origin/master"
 [EMC2]="$HOME/einsteinium origin/master"
-[GIN]="$HOME/gincoin origin/master"
+[GIN]="$HOME/gincoin-core origin/master"
 [VRSC]="$HOME/VerusCoin origin/master"
 )
