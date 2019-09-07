@@ -8,8 +8,8 @@ coin=$1
 kmd_target_utxo_count=75
 kmd_split_threshold=50
 
-other_target_utxo_count=10
-other_split_threshold=5
+other_target_utxo_count=100
+other_split_threshold=50
 
 date=$(date +%Y-%m-%d:%H:%M:%S)
 
