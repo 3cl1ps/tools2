@@ -1,4 +1,2 @@
-
-cd /home/eclips/SuperNET/iguana
-./m_notary_build
- nohup ./m_notary_3rdparty &
+cd /home/eclips/dPoW/iguana
+./m_notary_build && ./m_notary_3rdparty
