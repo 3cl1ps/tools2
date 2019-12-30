@@ -24,8 +24,6 @@ function show_walletsize () {
     SIZE=$(stat ~/.einsteinium/wallet.dat | grep -Po "\d+" | head -1)
   elif [ "$1" = "GIN" ]; then
     SIZE=$(stat ~/.gincoincore/wallet.dat | grep -Po "\d+" | head -1)
-  elif [ "$1" = "VRSC" ]; then
-    SIZE=$(stat ~/.komodo/VRSC/wallet.dat | grep -Po "\d+" | head -1)
   fi
 
   OUTSTR=$(echo $SIZE | numfmt --to=si --suffix=B)
