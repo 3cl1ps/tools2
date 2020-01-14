@@ -1,0 +1,17 @@
+#update
+/home/eclips/tools2/checkpull
+#kill
+/home/eclips/tools2/pkill
+#start
+/home/eclips/tools2/start
+#wait
+started=0
+while [[ ${started} -eq 0 ]]; do
+  gamecredits-cli getbalance && einsteinium-cli getbalance && gincoin-cli getblance > /dev/null 2>&1
+  outcome=$(echo $?)
+  if [[ ${outcome} -eq 0 ]]; then
+    started=1
+  fi
+done
+#iguana
+/home/eclips/tools2/otary
