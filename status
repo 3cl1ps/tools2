@@ -34,7 +34,6 @@ processlist=(
 'gamecredits'
 'einsteinium'
 'gincoin'
-'verusd'
 )
 
 count=0
