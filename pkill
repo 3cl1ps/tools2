@@ -1,3 +1,4 @@
+pkill -f iguana
 /home/eclips/komodo/src/komodo-cli stop
 /home/eclips/chips3/src/chips-cli stop
 /home/eclips/game/src/gamecredits-cli stop
