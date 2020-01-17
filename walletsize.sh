@@ -42,4 +42,3 @@ show_walletsize CHIPS
 show_walletsize GAME
 show_walletsize EMC2
 show_walletsize GIN
-show_walletsize VRSC
