@@ -2,8 +2,8 @@
 cd "${BASH_SOURCE%/*}" || exit
 
 coin="KMD"
-daemon="komodod -notary -pubkey=${PUBKEY}"
-daemon_process_regex="komodod.*\-notary"
+daemon="komodod -pubkey=${PUBKEY}"
+daemon_process_regex="komodod"
 cli="komodo-cli"
 wallet_file="${HOME}/.komodo/wallet.dat"
 nn_address=$KMDADDRESS
