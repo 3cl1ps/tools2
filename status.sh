@@ -72,12 +72,12 @@ do
             RESULT2="$(gincoin-cli -rpcclienttimeout=15 getbalance)"
             SIZE=$(stat /home/eclips/.gincoincore/wallet.dat | grep -Po "\d+" | head -1)
     fi
-    if [ "$count" -gt "5" ]
-    then
-            RESULT="$(komodo-cli -rpcclienttimeout=15 -ac_name=${processlist[count]} listunspent | grep .00010000 | wc -l)"
-            RESULT1="$(komodo-cli -ac_name=${processlist[count]} -rpcclienttimeout=15 listunspent|grep amount|awk '{print $2}'|sed s/.$//|awk '$1 < 0.0001'|wc -l)"
-            RESULT2="$(komodo-cli -rpcclienttimeout=15 -ac_name=${processlist[count]} getbalance)"
-    fi
+#    if [ "$count" -gt "5" ]
+#    then
+#            RESULT="$(komodo-cli -rpcclienttimeout=15 -ac_name=${processlist[count]} listunspent | grep .00010000 | wc -l)"
+#            RESULT1="$(komodo-cli -ac_name=${processlist[count]} -rpcclienttimeout=15 listunspent|grep amount|awk '{print $2}'|sed s/.$//|awk '$1 < 0.0001'|wc -l)"
+#            RESULT2="$(komodo-cli -rpcclienttimeout=15 -ac_name=${processlist[count]} getbalance)"
+#    fi
         # Check if we have actual results next two lines check for valid number.
         if [[ $RESULT == ?([-+])+([0-9])?(.*([0-9])) ]] || [[ $RESULT == ?(?([-+])*([0-9])).+([0-9]) ]]
         then
