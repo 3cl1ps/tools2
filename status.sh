@@ -6,7 +6,7 @@ YELLOW='\033[0;33m'
 NC='\033[0m' # No Color
 
 echo -n -e "iguana \t\t"
-if ps aux | grep -v grep | grep ${processlist[count]} >/dev/null
+if ps aux | grep -v grep | grep iguana >/dev/null
 then 
     printf "${GREEN} Running ${NC}\n"
 else
