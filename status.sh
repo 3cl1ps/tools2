@@ -14,7 +14,6 @@ else
 fi
 
 processlist=(
-#'iguana'
 'komodod'
 'chipsd'
 'gamecredits'
@@ -37,35 +36,35 @@ do
   if ps aux | grep -v grep | grep ${processlist[count]} >/dev/null
   then
     printf "Process: ${GREEN} Running ${NC}"
-    if [ "$count" = "1" ]
+    if [ "$count" = "0" ]
     then
             RESULT="$(komodo-cli -rpcclienttimeout=15 listunspent | grep .00010000 | wc -l)"
             RESULT1="$(komodo-cli -rpcclienttimeout=15 listunspent|grep amount|awk '{print $2}'|sed s/.$//|awk '$1 < 0.0001'|wc -l)"
             RESULT2="$(komodo-cli -rpcclienttimeout=15 getbalance)"
             SIZE=$(stat /home/eclips/.komodo/wallet.dat | grep -Po "\d+" | head -1)
     fi
-    if [ "$count" = "2" ]
+    if [ "$count" = "1" ]
     then
             RESULT="$(chips-cli -rpcclienttimeout=15 listunspent | grep .00010000 | wc -l)"
             RESULT1="$(chips-cli -rpcclienttimeout=15 listunspent|grep amount|awk '{print $2}'|sed s/.$//|awk '$1 < 0.0001'|wc -l)"
             RESULT2="$(chips-cli -rpcclienttimeout=15 getbalance)"
             SIZE=$(stat /home/eclips/.chips/wallet.dat | grep -Po "\d+" | head -1)
     fi
-    if [ "$count" = "3" ]
+    if [ "$count" = "2" ]
     then
             RESULT="$(gamecredits-cli -rpcclienttimeout=15 listunspent | grep .00100000 | wc -l)"
             RESULT1="$(gamecredits-cli -rpcclienttimeout=15 listunspent|grep amount|awk '{print $2}'|sed s/.$//|awk '$1 < 0.001'|wc -l)"
             RESULT2="$(gamecredits-cli -rpcclienttimeout=15 getbalance)"
-            SIZE=$(stat /home/eclips/.game/wallet.dat | grep -Po "\d+" | head -1)
+            SIZE=$(stat /home/eclips/.gamecredits/wallet.dat | grep -Po "\d+" | head -1)
     fi
-    if [ "$count" = "4" ]
+    if [ "$count" = "3" ]
     then
             RESULT="$(einsteinium-cli -rpcclienttimeout=15 listunspent | grep .00100000 | wc -l)"
             RESULT1="$(einsteinium-cli -rpcclienttimeout=15 listunspent|grep amount|awk '{print $2}'|sed s/.$//|awk '$1 < 0.001'|wc -l)"
             RESULT2="$(einsteinium-cli -rpcclienttimeout=15 getbalance)"
             SIZE=$(stat /home/eclips/.einsteinium/wallet.dat | grep -Po "\d+" | head -1)
     fi
-    if [ "$count" = "5" ]
+    if [ "$count" = "4" ]
     then
             RESULT="$(gincoin-cli -rpcclienttimeout=15 listunspent | grep .00010000 | wc -l)"
             RESULT1="$(gincoin-cli -rpcclienttimeout=15 listunspent|grep amount|awk '{print $2}'|sed s/.$//|awk '$1 < 0.0001'|wc -l)"
