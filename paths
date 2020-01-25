@@ -14,16 +14,14 @@ coinsthird=(
 'GAME $HOME/game/src/gamecredits-cli $HOME/game/src/gamecreditsd .gamecredits'
 'EMC2 $HOME/einsteinium/src/einsteinium-cli $HOME/einsteinium/src/einsteiniumd .einsteinium'
 'GIN $HOME/gincoin/src/gincoin-cli $HOME/gincoin/src/gincoind .gincoincore'
-'VRSC $HOME/VerusCoin/src/verus $HOME/VerusCoin/src/verusd .komodo/VRSC'
 )
 
 #for git checking - path and remote branch
 declare -A repos=(
-[KMD]="$HOME/komodo origin/beta"
-[SUPERNET]="$HOME/dPoW origin/blackjok3r"
+[KMD]="$HOME/komodo origin/master"
+[dPoW]="$HOME/dPoW origin/master"
 [CHIPS]="$HOME/chips3 origin/dev"
 [GAME]="$HOME/game origin/master"
 [EMC2]="$HOME/einsteinium origin/master"
 [GIN]="$HOME/gincoin origin/master"
-[VRSC]="$HOME/VerusCoin origin/master"
 )
