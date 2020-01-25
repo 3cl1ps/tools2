@@ -136,9 +136,9 @@ do
         then
             if (( $(echo "$RESULT2 > 0.1" | bc -l) ));
             then
-                printf " - Funds: ${GREEN}%4.2f${NC}" $RESULT2
+                printf " - Funds: ${GREEN}%5.2f${NC}" $RESULT2
             else
-                printf " - Funds: ${RED}%4.2f${NC}" $RESULT2
+                printf " - Funds: ${RED}%5.2f${NC}" $RESULT2
             fi
         else
             printf "\n"
