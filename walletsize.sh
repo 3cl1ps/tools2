@@ -3,6 +3,8 @@
 
 # Credits decker, jeezy
 
+source /home/eclips/.bash_profile
+
 RESET="\033[0m"
 BLACK="\033[30m"
 RED="\033[31m"

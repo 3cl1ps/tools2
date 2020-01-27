@@ -8,7 +8,7 @@ GREEN='\033[0;32m'
 YELLOW='\033[0;33m'
 NC='\033[0m' # No Color
 kmdntrzaddr=RXL3YXG2ceaB6C5hfJcN4fvmLH2C34knhA
-gamentrizaddr=Gftmt8hgzgNu6f1o85HMPuwTVBMSV2TYSt
+gamentrzaddr=Gftmt8hgzgNu6f1o85HMPuwTVBMSV2TYSt
 ginntrzaddr=Gftmt8hgzgNu6f1o85HMPuwTVBMSV2TYSt
 einsteiniumntrzaddr=EfCkxbDFSn4X1VKMzyckyHaXLf4ithTGoM
 
