@@ -18,27 +18,27 @@ WHITE="\033[37m"
 function show_walletsize () {
   if [ "$1" = "KMD" ]; then
     SIZE=$(stat ~/.komodo/wallet.dat | grep -Po "\d+" | head -1)
-    if [ "$SIZE" -gt "4222944" ]; then
+    if [ "$SIZE" -gt "4000000" ]; then
       /home/eclips/tools2/walletresetkmd.sh
     fi
   elif [ "$1" = "CHIPS" ]; then
     SIZE=$(stat ~/.chips/wallet.dat | grep -Po "\d+" | head -1)
-    if [ "$SIZE" -gt "4222944" ]; then
+    if [ "$SIZE" -gt "4000000" ]; then
       /home/eclips/tools2/walletresetchips.sh
     fi
   elif [ "$1" = "GAME" ]; then
     SIZE=$(stat ~/.gamecredits/wallet.dat | grep -Po "\d+" | head -1)
-    if [ "$SIZE" -gt "4222944" ]; then
+    if [ "$SIZE" -gt "4000000" ]; then
       /home/eclips/tools2/walletresetgame.sh
     fi
   elif [ "$1" = "EMC2" ]; then
     SIZE=$(stat ~/.einsteinium/wallet.dat | grep -Po "\d+" | head -1)
-    if [ "$SIZE" -gt "4222944" ]; then
+    if [ "$SIZE" -gt "4000000" ]; then
       /home/eclips/tools2/walletresetemc2.sh
     fi
   elif [ "$1" = "GIN" ]; then
     SIZE=$(stat ~/.gincoincore/wallet.dat | grep -Po "\d+" | head -1)
-    if [ "$SIZE" -gt "4222944" ]; then
+    if [ "$SIZE" -gt "4000000" ]; then
       /home/eclips/tools2/walletresetgin.sh
     fi
   fi
