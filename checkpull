@@ -11,6 +11,9 @@ cd /home/eclips/chips3 && git checkout dev && git pull && make -j8
 printf "\n${GR}>>>>>>> CHECKING GAME${NC}\n"
 cd /home/eclips/game && git checkout master && git pull && make -j8
 
+printf "\n${GR}>>>>>>> CHECKING HUSH3${NC}\n"
+cd /home/eclips/hush3 && git checkout master && git pull && make -j8
+
 printf "\n${GR}>>>>>>> CHECKING EMC2${NC}\n"
 cd /home/eclips/einsteinium && git checkout master && git pull && make -j8
 
