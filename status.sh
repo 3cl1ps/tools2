@@ -46,6 +46,7 @@ processlist=(
 'game'
 'einst'
 'gincoin'
+'hushd'
 )
 
 count=0
@@ -109,6 +110,17 @@ do
             txinfo=$(gincoin-cli listtransactions "" $txscanamount)
             lastntrztime=$(echo $txinfo | jq -r --arg address "$ginntrzaddr" '[.[] | select(.address==$address)] | sort_by(.time) | last | "\(.time)"')
             checkRepo GIN
+        fi
+        if [ "$count" = "5" ]
+        then
+            RESULT="$(hush-cli -rpcclienttimeout=15 listunspent | grep .00010000 | wc -l)"
+            RESULT1="$(hush-cli -rpcclienttimeout=15 listunspent|grep amount|awk '{print $2}'|sed s/.$//|awk '$1 < 0.0001'|wc -l)"
+            RESULT2="$(hush-cli -rpcclienttimeout=15 getbalance)"
+            SIZE=$(stat --printf="%s" /home/eclips/.komodo/hush/wallet.dat)
+            TIME=$((time gincoin-cli listunspent) 2>&1 >/dev/null)
+            txinfo=$(hush-cli listtransactions "" $txscanamount)
+            lastntrztime=$(echo $txinfo | jq -r --arg address "$kmdntrzaddr" '[.[] | select(.address==$address)] | sort_by(.time) | last | "\(.time)"')
+            checkRepo HUSH3
         fi
 
         # Check if we have actual results next two lines check for valid number.
