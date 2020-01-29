@@ -3,21 +3,21 @@ GR='\033[0;32m'
 NC='\033[0m'
 
 printf "\n${GR}>>> CHECKING KOMODO${NC}\n"
-cd /home/eclips/komodo && git checkout master && git pull && make -j8 || git clean -fdx && cp ../dPoW/iguana/pubkey.txt src/ && ./zcutil/build.sh -j8
+cd /home/eclips/komodo && git checkout ${repos[KMD,1]} && git pull && make -j8 || git clean -fdx && cp ../dPoW/iguana/pubkey.txt src/ && ./zcutil/build.sh -j8
 
 printf "\n${GR}>>>>>>> CHECKING CHIPS${NC}\n"
-cd /home/eclips/chips3 && git checkout dev && git pull && make -j8
+cd /home/eclips/chips3 && git checkout ${repos[CHIPS,1]} && git pull && make -j8
 
 printf "\n${GR}>>>>>>> CHECKING GAME${NC}\n"
-cd /home/eclips/game && git checkout master && git pull && make -j8
+cd /home/eclips/game && git checkout ${repos[GAME,1]} && git pull && make -j8
 
 printf "\n${GR}>>>>>>> CHECKING HUSH3${NC}\n"
-cd /home/eclips/hush3 && git checkout master && git pull && make -j8
+cd /home/eclips/hush3 && git checkout ${repos[HUSH3,1]} && git pull && make -j8
 
 printf "\n${GR}>>>>>>> CHECKING EMC2${NC}\n"
-cd /home/eclips/einsteinium && git checkout master && git pull && make -j8
+cd /home/eclips/einsteinium && git checkout ${repos[EMC2,1]} && git pull && make -j8
 
 printf "\n${GR}>>>>>>> CHECKING GINCOIN${NC}\n"
-cd /home/eclips/gincoin && git checkout master && git pull && make -j8
+cd /home/eclips/gincoin && git checkout ${repos[GIN,1]} && git pull && make -j8
 
 printf "\n"
