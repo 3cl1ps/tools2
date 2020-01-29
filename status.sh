@@ -12,26 +12,6 @@ gamentrzaddr=Gftmt8hgzgNu6f1o85HMPuwTVBMSV2TYSt
 ginntrzaddr=Gftmt8hgzgNu6f1o85HMPuwTVBMSV2TYSt
 einsteiniumntrzaddr=EfCkxbDFSn4X1VKMzyckyHaXLf4ithTGoM
 
-checkRepo () {
-    if [ -z $1 ] ; then
-        return
-    fi
-    repo=(${repos[$1]})
-    prevdir=${PWD}
-
-    cd $repo
-
-    git remote update > /dev/null 2>&1
-
-    localrev=$(git rev-parse HEAD)
-    remoterev=$(git rev-parse ${repo[1]})
-    cd $prevdir
-
-    if [ $localrev != $remoterev ]; then
-        printf "${RED}[U]${NC}"
-    fi
-}
-
 printf "%-9s" "iguana"
 if ps aux | grep -v grep | grep iguana >/dev/null
 then 
