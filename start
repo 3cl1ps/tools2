@@ -3,3 +3,4 @@
 /home/eclips/komodo/src/komodod -pubkey=$PUBKEY &
 /home/eclips/einsteinium/src/einsteiniumd -pubkey=$PUBKEY &
 /home/eclips/gincoin/src/gincoind -pubkey=$PUBKEY &
+/home/eclips/hush3/src/hushd -pubkey=$PUBKEY &
