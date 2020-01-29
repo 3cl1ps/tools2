@@ -4,7 +4,6 @@ pkill -f iguana
 /home/eclips/game/src/gamecredits-cli stop
 /home/eclips/gincoin/src/gincoin-cli stop
 /home/eclips/einsteinium/src/einsteinium-cli stop
-/home/eclips/VerusCoin/src/verus stop
 sleep 10
 pkill -f komodod
 rm /home/eclips/nohup.out
