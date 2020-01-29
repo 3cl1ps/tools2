@@ -46,7 +46,7 @@ processlist=(
 'game'
 'einst'
 'gincoin'
-'hushd'
+'hush'
 )
 
 count=0
