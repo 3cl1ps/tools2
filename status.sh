@@ -116,7 +116,7 @@ do
             RESULT="$(hush-cli -rpcclienttimeout=15 listunspent | grep .00010000 | wc -l)"
             RESULT1="$(hush-cli -rpcclienttimeout=15 listunspent|grep amount|awk '{print $2}'|sed s/.$//|awk '$1 < 0.0001'|wc -l)"
             RESULT2="$(hush-cli -rpcclienttimeout=15 getbalance)"
-            SIZE=$(stat --printf="%s" /home/eclips/.komodo/hush/wallet.dat)
+            SIZE=$(stat --printf="%s" /home/eclips/.komodo/HUSH3/wallet.dat)
             TIME=$((time gincoin-cli listunspent) 2>&1 >/dev/null)
             txinfo=$(hush-cli listtransactions "" $txscanamount)
             lastntrztime=$(echo $txinfo | jq -r --arg address "$kmdntrzaddr" '[.[] | select(.address==$address)] | sort_by(.time) | last | "\(.time)"')
