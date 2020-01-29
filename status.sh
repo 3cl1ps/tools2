@@ -1,6 +1,6 @@
 #!/bin/bash
 # Suggest using with this command: watch --color -n 60 ./status
-scriptpath="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+#scriptpath="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 source $scriptpath/main
 TIMEFORMAT=%R
 RED='\033[0;31m'
