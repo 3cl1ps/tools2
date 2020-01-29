@@ -15,14 +15,3 @@ coinsthird=(
 'EMC2 $HOME/einsteinium/src/einsteinium-cli $HOME/einsteinium/src/einsteiniumd .einsteinium'
 'GIN $HOME/gincoin/src/gincoin-cli $HOME/gincoin/src/gincoind .gincoincore'
 )
-
-#for git checking - path and remote branch
-declare -A repos=(
-[KMD]="$HOME/komodo origin/master"
-[dPoW]="$HOME/dPoW origin/master"
-[CHIPS]="$HOME/chips3 origin/dev"
-[GAME]="$HOME/game origin/master"
-[EMC2]="$HOME/einsteinium origin/master"
-[GIN]="$HOME/gincoin origin/master"
-[HUSH3]="$HOME/hush3 origin/master"
-)
