@@ -2,8 +2,8 @@
 #
 # @author webworker01
 
-source /home/eclips/tools2/coinlist
-source /home/eclips/tools2/config
+
+source /home/eclips/tools2/main
 
 dt=$(date '+%Y-%m-%d %H:%M:%S');
 
