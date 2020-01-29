@@ -183,7 +183,7 @@ do
         TIME=""
 
     else
-        printf "Process: ${RED} Not Running ${NC}\n"
+        printf "${RED} Not Running ${NC}\n"
     fi
     count=$(( $count +1 ))
 done
