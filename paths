@@ -24,4 +24,5 @@ declare -A repos=(
 [GAME]="$HOME/game origin/master"
 [EMC2]="$HOME/einsteinium origin/master"
 [GIN]="$HOME/gincoin origin/master"
+[HUSH3]="$HOME/hush3 origin/master"
 )
