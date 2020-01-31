@@ -6,7 +6,7 @@ source /home/eclips/tools2/main
 
 repo=(${repos[KMD]})
 printf "\n${GR}>>> CHECKING KOMODO${NC}\n"
-cd ${repo[0]} && git checkout ${repo[2]} && git pull && make -j8 && git clean -fdx && cp ../dPoW/iguana/pubkey.txt src/ && ./zcutil/build.sh -j8
+cd ${repo[0]} && git checkout ${repo[2]} && git pull && make -j8 || git clean -fdx && cp ../dPoW/iguana/pubkey.txt src/ && ./zcutil/build.sh -j8
 
 repo=(${repos[CHIPS]})
 printf "\n${GR}>>>>>>> CHECKING CHIPS${NC}\n"
