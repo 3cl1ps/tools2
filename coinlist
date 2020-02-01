@@ -1,3 +1,8 @@
 #!/bin/bash
 coinlist=(
+CHIPS
+GAME
+EMC2
+GIN
+HUSH3
 )
