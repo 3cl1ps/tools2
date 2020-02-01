@@ -1,0 +1,1 @@
+while true; do echo "Running status at $(date)"; /home/eclips/tools2/checkfork; sleep 300 ; done
