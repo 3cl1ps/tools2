@@ -1,23 +1,10 @@
 #!/bin/bash
-#
-# Common startup for all scripts
-#
-# @author webworker01
-#
-scriptpath="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 #imports
 source /home/eclips/install/repos
 source /home/eclips/install/functions
 source /home/eclips/tools2/coinlist
 source /home/eclips/.bash_profile
-
-thirdpartycoins=1
-nn_address=$KMDADDRESS
-nn_pubkey=$PUBKEY
-referencenode=$REFNODE
-#How many transactions back to scan for notarizations
-txscanamount=777
 
 #defaults
 addnodes=${addnodes:="-addnode=seed.komodostats.com -addnode=seed.webworker.sh"}
