@@ -184,7 +184,7 @@ if ps aux | grep -v grep | grep gamecreditsd >/dev/null; then
                 printf  " - Dust: ${GREEN}%3s${NC}" $countunspent
             fi
         fi
-        SIZE=$(stat --printf="%s" /home/eclips/.komodo/VRSC/wallet.dat)
+        SIZE=$(stat --printf="%s" /home/eclips/.gamecredits/wallet.dat)
         OUTSTR=$(echo $SIZE | numfmt --to=si --suffix=B)
         if [ "$SIZE" -gt "4000000" ]; then
             printf " - WSize: ${RED}%5s${NC}" $OUTSTR           
@@ -252,7 +252,7 @@ if ps aux | grep -v grep | grep einsteiniumd >/dev/null; then
                 printf  " - Dust: ${GREEN}%3s${NC}" $countunspent
             fi
         fi
-        SIZE=$(stat --printf="%s" /home/eclips/.komodo/VRSC/wallet.dat)
+        SIZE=$(stat --printf="%s" /home/eclips/.einsteinium/wallet.dat)
         OUTSTR=$(echo $SIZE | numfmt --to=si --suffix=B)
         if [ "$SIZE" -gt "4000000" ]; then
             printf " - WSize: ${RED}%5s${NC}" $OUTSTR           
@@ -321,7 +321,7 @@ if ps aux | grep -v grep | grep gincoind >/dev/null; then
                 printf  " - Dust: ${GREEN}%3s${NC}" $countunspent
             fi
         fi
-        SIZE=$(stat --printf="%s" /home/eclips/.komodo/VRSC/wallet.dat)
+        SIZE=$(stat --printf="%s" /home/eclips/.gincoincore/wallet.dat)
         OUTSTR=$(echo $SIZE | numfmt --to=si --suffix=B)
         if [ "$SIZE" -gt "4000000" ]; then
             printf " - WSize: ${RED}%5s${NC}" $OUTSTR           
@@ -390,7 +390,7 @@ if ps aux | grep -v grep | grep hushd >/dev/null; then
                 printf  " - Dust: ${GREEN}%3s${NC}" $countunspent
             fi
         fi
-        SIZE=$(stat --printf="%s" /home/eclips/.komodo/VRSC/wallet.dat)
+        SIZE=$(stat --printf="%s" /home/eclips/.komodo/HUSH3/wallet.dat)
         OUTSTR=$(echo $SIZE | numfmt --to=si --suffix=B)
         if [ "$SIZE" -gt "4000000" ]; then
             printf " - WSize: ${RED}%5s${NC}" $OUTSTR           
