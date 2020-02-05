@@ -8,25 +8,25 @@ NC='\033[0m' # No Color
 kmdntrzaddr=RXL3YXG2ceaB6C5hfJcN4fvmLH2C34knhA
 gamentrzaddr=Gftmt8hgzgNu6f1o85HMPuwTVBMSV2TYSt
 ginntrzaddr=Gftmt8hgzgNu6f1o85HMPuwTVBMSV2TYSt
-einsteiniumntrzaddr=EfCkxbDFSn4X1VKMzyckyHaXLf4ithTGoM
+einntrzaddr=EfCkxbDFSn4X1VKMzyckyHaXLf4ithTGoM
 txscanamount=2000
 if ps aux | grep -v grep | grep iguana >/dev/null
 then 
     printf "${GREEN}%-9s${NC}" "iguana"
 else
     printf "${RED}%-20s${NC}" "iguana Not Running"
-    /home/eclips/tools/force_iguana.sh
+    /home/eclips/tools2/force_iguana.sh
 fi
 printf "\n"
 
-if ps aux | grep -v grep | grep komodod | grep notary >/dev/null; then
+if ps aux | grep -v grep | grep komodod > /dev/null; then
     balance="$(komodo-cli -rpcclienttimeout=15 getbalance 2>&1)"
     if [[ $balance =~ $isNumber ]]; then
-        printf "${GREEN}%-9s${NC}" "komodo"
+        printf "${GREEN}%-11s${NC}" "komodo"
         if (( $(echo "$balance > 0.1" | bc -l) )); then
-            printf " - Funds: ${GREEN}%10.2f${NC}" $balance
+            printf " - Funds: ${GREEN}%5.2f${NC}" $balance
         else
-            printf " - Funds: ${RED}%10.2f${NC}" $balance
+            printf " - Funds: ${RED}%5.2f${NC}" $balance
         fi
         listunspent=$(komodo-cli listunspent | grep .00010000 | wc -l)
         # Check if we have actual results next two lines check for valid number.
@@ -93,11 +93,11 @@ printf "\n"
 if ps aux | grep -v grep | grep chipsd >/dev/null; then
     balance="$(chips-cli -rpcclienttimeout=15 getbalance 2>&1)"
     if [[ $balance =~ $isNumber ]]; then
-        printf "${GREEN}%-9s${NC}" "Chips"
+        printf "${GREEN}%-11s${NC}" "Chips"
         if (( $(echo "$balance > 0.1" | bc -l) )); then
-            printf " - Funds: ${GREEN}%10.2f${NC}" $balance
+            printf " - Funds: ${GREEN}%5.2f${NC}" $balance
         else
-            printf " - Funds: ${RED}%10.2f${NC}" $balance
+            printf " - Funds: ${RED}%5.2f${NC}" $balance
         fi
         listunspent="$(chips-cli -rpcclienttimeout=15 listunspent | grep .00010000 | wc -l)"
         if [[ $listunspent =~ $isNumber ]]; then
@@ -161,13 +161,13 @@ printf "\n"
 if ps aux | grep -v grep | grep gamecreditsd >/dev/null; then
     balance="$(gamecredits-cli -rpcclienttimeout=15 getbalance 2>&1)"
     if [[ $balance =~ $isNumber ]]; then
-        printf "${GREEN}%-9s${NC}" "GameCredits"
+        printf "${GREEN}%-11s${NC}" "GameCredits"
         if (( $(echo "$balance > 0.1" | bc -l) )); then
-            printf " - Funds: ${GREEN}%10.2f${NC}" $balance
+            printf " - Funds: ${GREEN}%5.2f${NC}" $balance
         else
-            printf " - Funds: ${RED}%10.2f${NC}" $balance
+            printf " - Funds: ${RED}%5.2f${NC}" $balance
         fi
-        listunspent="$(gamecredits-cli -rpcclienttimeout=15 listunspent | grep .00010000 | wc -l)"
+        listunspent="$(gamecredits-cli -rpcclienttimeout=15 listunspent | grep .00100000 | wc -l)"
         if [[ $listunspent =~ $isNumber ]]; then
             if [[ "$listunspent" -lt "15" ]] || [[ "$listunspent" -gt "50" ]]; then
                 printf  " - UTXOs: ${RED}%3s${NC}" $listunspent
@@ -198,12 +198,12 @@ if ps aux | grep -v grep | grep gamecreditsd >/dev/null; then
             printf " - Time: ${GREEN}%3ss${NC}" $TIME
         fi
         txinfo=$(gamecredits-cli listtransactions "" $txscanamount)
-        lastntrztime=$(echo $txinfo | jq -r --arg address "$kmdntrzaddr" '[.[] | select(.address==$address)] | sort_by(.time) | last | "\(.time)"') 
+        lastntrztime=$(echo $txinfo | jq -r --arg address "$gamentrzaddr" '[.[] | select(.address==$address)] | sort_by(.time) | last | "\(.time)"') 
         printf " - LastN: ${GREEN}%6s${NC}" $(timeSince $lastntrztime)
         #speed
         now=$(date +%s)
         window=$(echo "$now - 3*3600" | bc -l)
-        speed=$(echo $txinfo | jq -r --arg address "$kmdntrzaddr" --argjson window "$window" '[.[] | select(.address==$address and .time > $window)] | length')
+        speed=$(echo $txinfo | jq -r --arg address "$gamentrzaddr" --argjson window "$window" '[.[] | select(.address==$address and .time > $window)] | length')
         if (( $speed < 1 )); then
             printf " - Speed3: ${RED}%2s${NC}" $speed  
         else
@@ -229,13 +229,13 @@ printf "\n"
 if ps aux | grep -v grep | grep einsteiniumd >/dev/null; then
     balance="$(einsteinium-cli -rpcclienttimeout=15 getbalance 2>&1)"
     if [[ $balance =~ $isNumber ]]; then
-        printf "${GREEN}%-9s${NC}" "Einsteinium"
+        printf "${GREEN}%-11s${NC}" "Einsteinium"
         if (( $(echo "$balance > 0.1" | bc -l) )); then
-            printf " - Funds: ${GREEN}%10.2f${NC}" $balance
+            printf " - Funds: ${GREEN}%5.2f${NC}" $balance
         else
-            printf " - Funds: ${RED}%10.2f${NC}" $balance
+            printf " - Funds: ${RED}%5.2f${NC}" $balance
         fi
-        listunspent="$(einsteinium-cli -rpcclienttimeout=15 listunspent | grep .00010000 | wc -l)"
+        listunspent="$(einsteinium-cli -rpcclienttimeout=15 listunspent | grep .00100000 | wc -l)"
         if [[ $listunspent =~ $isNumber ]]; then
             if [[ "$listunspent" -lt "15" ]] || [[ "$listunspent" -gt "50" ]]; then
                 printf  " - UTXOs: ${RED}%3s${NC}" $listunspent
@@ -266,12 +266,12 @@ if ps aux | grep -v grep | grep einsteiniumd >/dev/null; then
             printf " - Time: ${GREEN}%3ss${NC}" $TIME
         fi
         txinfo=$(einsteinium-cli listtransactions "" $txscanamount)
-        lastntrztime=$(echo $txinfo | jq -r --arg address "$kmdntrzaddr" '[.[] | select(.address==$address)] | sort_by(.time) | last | "\(.time)"') 
+        lastntrztime=$(echo $txinfo | jq -r --arg address "$einntrzaddr" '[.[] | select(.address==$address)] | sort_by(.time) | last | "\(.time)"') 
         printf " - LastN: ${GREEN}%6s${NC}" $(timeSince $lastntrztime)
         #speed
         now=$(date +%s)
         window=$(echo "$now - 3*3600" | bc -l)
-        speed=$(echo $txinfo | jq -r --arg address "$kmdntrzaddr" --argjson window "$window" '[.[] | select(.address==$address and .time > $window)] | length')
+        speed=$(echo $txinfo | jq -r --arg address "$einntrzaddr" --argjson window "$window" '[.[] | select(.address==$address and .time > $window)] | length')
         if (( $speed < 1 )); then
             printf " - Speed3: ${RED}%2s${NC}" $speed  
         else
@@ -298,11 +298,11 @@ printf "\n"
 if ps aux | grep -v grep | grep gincoind >/dev/null; then
     balance="$(gincoin-cli -rpcclienttimeout=15 getbalance 2>&1)"
     if [[ $balance =~ $isNumber ]]; then
-        printf "${GREEN}%-9s${NC}" "Gincoin"
+        printf "${GREEN}%-11s${NC}" "Gincoin"
         if (( $(echo "$balance > 0.1" | bc -l) )); then
-            printf " - Funds: ${GREEN}%10.2f${NC}" $balance
+            printf " - Funds: ${GREEN}%5.2f${NC}" $balance
         else
-            printf " - Funds: ${RED}%10.2f${NC}" $balance
+            printf " - Funds: ${RED}%5.2f${NC}" $balance
         fi
         listunspent="$(gincoin-cli -rpcclienttimeout=15 listunspent | grep .00010000 | wc -l)"
         if [[ $listunspent =~ $isNumber ]]; then
@@ -335,12 +335,12 @@ if ps aux | grep -v grep | grep gincoind >/dev/null; then
             printf " - Time: ${GREEN}%3ss${NC}" $TIME
         fi
         txinfo=$(gincoin-cli listtransactions "" $txscanamount)
-        lastntrztime=$(echo $txinfo | jq -r --arg address "$kmdntrzaddr" '[.[] | select(.address==$address)] | sort_by(.time) | last | "\(.time)"') 
+        lastntrztime=$(echo $txinfo | jq -r --arg address "$ginntrzaddr" '[.[] | select(.address==$address)] | sort_by(.time) | last | "\(.time)"') 
         printf " - LastN: ${GREEN}%6s${NC}" $(timeSince $lastntrztime)
         #speed
         now=$(date +%s)
         window=$(echo "$now - 3*3600" | bc -l)
-        speed=$(echo $txinfo | jq -r --arg address "$kmdntrzaddr" --argjson window "$window" '[.[] | select(.address==$address and .time > $window)] | length')
+        speed=$(echo $txinfo | jq -r --arg address "$ginntrzaddr" --argjson window "$window" '[.[] | select(.address==$address and .time > $window)] | length')
         if (( $speed < 1 )); then
             printf " - Speed3: ${RED}%2s${NC}" $speed  
         else
@@ -367,11 +367,11 @@ printf "\n"
 if ps aux | grep -v grep | grep hushd >/dev/null; then
     balance="$(hush-cli -rpcclienttimeout=15 getbalance 2>&1)"
     if [[ $balance =~ $isNumber ]]; then
-        printf "${GREEN}%-9s${NC}" "Hush"
+        printf "${GREEN}%-11s${NC}" "Hush"
         if (( $(echo "$balance > 0.1" | bc -l) )); then
-            printf " - Funds: ${GREEN}%10.2f${NC}" $balance
+            printf " - Funds: ${GREEN}%5.2f${NC}" $balance
         else
-            printf " - Funds: ${RED}%10.2f${NC}" $balance
+            printf " - Funds: ${RED}%5.2f${NC}" $balance
         fi
         listunspent="$(hush-cli -rpcclienttimeout=15 listunspent | grep .00010000 | wc -l)"
         if [[ $listunspent =~ $isNumber ]]; then
