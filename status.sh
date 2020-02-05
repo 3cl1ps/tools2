@@ -1,5 +1,5 @@
 #!/bin/bash
-source /home/eclips/tools/main
+source /home/eclips/tools2/main
 TIMEFORMAT=%R
 RED='\033[0;31m'
 GREEN='\033[0;32m'
