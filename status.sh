@@ -364,7 +364,7 @@ fi
 printf "\n"
 
 
-if ps aux | grep -v grep | grep hushd >/dev/null; then
+if ps aux | grep -v grep | grep "HUSH3" >/dev/null; then
     balance="$(hush-cli -rpcclienttimeout=15 getbalance 2>&1)"
     if [[ $balance =~ $isNumber ]]; then
         printf "${GREEN}%-11s${NC}" "Hush"
