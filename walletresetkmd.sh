@@ -2,7 +2,7 @@
 cd "${BASH_SOURCE%/*}" || exit
 
 coin="KMD"
-daemon="komodod -pubkey=${PUBKEY}"
+daemon="/home/eclips/tools2/komodod -pubkey=${PUBKEY}"
 daemon_process_regex="komodod.*\-pubkey | grep -v HUSH3"
 cli="komodo-cli"
 wallet_file="${HOME}/.komodo/wallet.dat"
