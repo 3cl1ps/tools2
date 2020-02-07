@@ -1,6 +1,6 @@
 /home/eclips/game/src/gamecreditsd -pubkey=$PUBKEY &
 /home/eclips/chips3/src/chipsd -pubkey=$PUBKEY &
-/home/eclips/komodo/src/komodod -pubkey=$PUBKEY &
+/home/eclips/komodo/src/komodod -pubkey=$PUBKEY -minrelaytxfee=0.000035 -opretmintxfee=0.004 &
 /home/eclips/einsteinium/src/einsteiniumd -pubkey=$PUBKEY &
 /home/eclips/gincoin/src/gincoind -pubkey=$PUBKEY &
 /home/eclips/hush3/src/hushd -pubkey=$PUBKEY &
