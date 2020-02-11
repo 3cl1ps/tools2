@@ -10,7 +10,7 @@ cli="komodo-cli -ac_name=${coin}"
 wallet_file="${HOME}/.komodo/${coin}/wallet.dat"
 nn_address=$KMDADDRESS
 
-./walletreset.sh \
+/home/eclips/install/walletreset.sh \
   "${coin}" \
   "${daemon}" \
   "${daemon_process_regex}" \
