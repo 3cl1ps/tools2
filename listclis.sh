@@ -10,7 +10,7 @@ game_cli="gamecredits-cli"
 einsteinium_cli="einsteinium-cli"
 gincoin_cli="gincoin-cli"
 komodo_cli="komodo-cli"
-verus_cli="verus"
+hush_cli="hush-cli"
 
 if [[ -z "${specific_coin}" ]] || [[ "${specific_coin}" = "CHIPS" ]]; then
   echo ${chips_cli}
@@ -24,9 +24,9 @@ fi
 if [[ -z "${specific_coin}" ]] || [[ "${specific_coin}" = "GIN" ]]; then
   echo ${gincoin_cli}
 fi
-if [[ -z "${specific_coin}" ]] || [[ "${specific_coin}" = "VRSC" ]]; then
-  echo ${verus_cli}
-fi
 if [[ -z "${specific_coin}" ]] || [[ "${specific_coin}" = "KMD" ]]; then
   echo ${komodo_cli}
+fi
+if [[ -z "${specific_coin}" ]] || [[ "${specific_coin}" = "HUSH3" ]]; then
+  echo ${hush_cli}
 fi
