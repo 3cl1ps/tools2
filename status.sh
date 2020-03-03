@@ -20,7 +20,7 @@ else
 fi
 printf "\n"
 
-if ps aux | grep -v grep | grep "src/komodod" > /dev/null; then
+if ps aux | grep -v grep | grep "src/komodod" | grep -v walletreset > /dev/null; then
     balance="$(komodo-cli -rpcclienttimeout=15 getbalance 2>&1)"
     if [[ $balance =~ $isNumber ]]; then
         printf "${GREEN}%-11s${NC}" "komodo"
@@ -91,7 +91,7 @@ else
 fi
 printf "\n"
 
-if ps aux | grep -v grep | grep chipsd >/dev/null; then
+if ps aux | grep -v grep | grep chipsd | grep -v walletreset >/dev/null; then
     balance="$(chips-cli -rpcclienttimeout=15 getbalance 2>&1)"
     if [[ $balance =~ $isNumber ]]; then
         printf "${GREEN}%-11s${NC}" "Chips"
@@ -159,7 +159,7 @@ else
 fi
 printf "\n"
 
-if ps aux | grep -v grep | grep gamecreditsd >/dev/null; then
+if ps aux | grep -v grep | grep gamecreditsd | grep -v walletreset >/dev/null; then
     balance="$(gamecredits-cli -rpcclienttimeout=15 getbalance 2>&1)"
     if [[ $balance =~ $isNumber ]]; then
         printf "${GREEN}%-11s${NC}" "GameCredits"
@@ -227,7 +227,7 @@ else
 fi
 printf "\n"
 
-if ps aux | grep -v grep | grep einsteiniumd >/dev/null; then
+if ps aux | grep -v grep | grep einsteiniumd | grep -v walletreset >/dev/null; then
     balance="$(einsteinium-cli -rpcclienttimeout=15 getbalance 2>&1)"
     if [[ $balance =~ $isNumber ]]; then
         printf "${GREEN}%-11s${NC}" "Einsteinium"
@@ -296,7 +296,7 @@ fi
 printf "\n"
 
 
-if ps aux | grep -v grep | grep gincoind >/dev/null; then
+if ps aux | grep -v grep | grep gincoind | grep -v walletreset >/dev/null; then
     balance="$(gincoin-cli -rpcclienttimeout=15 getbalance 2>&1)"
     if [[ $balance =~ $isNumber ]]; then
         printf "${GREEN}%-11s${NC}" "Gincoin"
@@ -365,7 +365,7 @@ fi
 printf "\n"
 
 
-if ps aux | grep -v grep | grep "HUSH3" >/dev/null; then
+if ps aux | grep -v grep | grep "HUSH3" | grep -v walletreset >/dev/null; then
     balance="$(hush-cli -rpcclienttimeout=15 getbalance 2>&1)"
     if [[ $balance =~ $isNumber ]]; then
         printf "${GREEN}%-11s${NC}" "Hush"
