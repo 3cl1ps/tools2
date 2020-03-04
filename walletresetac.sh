@@ -1,4 +1,3 @@
-
 #!/bin/bash
 
 source /home/eclips/tools/main
