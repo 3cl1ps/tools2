@@ -41,6 +41,11 @@ function show_walletsize () {
     if [ "$SIZE" -gt "4000000" ]; then
       /home/eclips/tools2/walletresetgin.sh
     fi
+  elif [ "$1" = "HUSH3" ]; then
+    SIZE=$(stat ~/.komodo/HUSH3/wallet.dat | grep -Po "\d+" | head -1)
+    if [ "$SIZE" -gt "4000000" ]; then
+      /home/eclips/tools2/walletresetac.sh HUSH3
+    fi
   fi
 }
 
@@ -49,3 +54,4 @@ show_walletsize CHIPS
 show_walletsize GAME
 show_walletsize EMC2
 show_walletsize GIN
+show_walletsize HUSH3
