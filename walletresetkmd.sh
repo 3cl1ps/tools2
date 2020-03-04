@@ -3,7 +3,7 @@ cd "${BASH_SOURCE%/*}" || exit
 
 coin="KMD"
 daemon="/home/eclips/komodo/src/komodod -pubkey=${PUBKEY} -minrelaytxfee=0.000035 -opretmintxfee=0.004"
-daemon_process_regex="komodod.*\-pubkey | grep -v HUSH3"
+daemon_process_regex="komodod.*\-pubkey"
 cli="komodo-cli"
 wallet_file="${HOME}/.komodo/wallet.dat"
 nn_address=$KMDADDRESS
