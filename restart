@@ -1,6 +1,6 @@
 #!/bin/bash
 #update
-/home/eclips/tools2/checkpull
+#/home/eclips/tools2/checkpull
 #kill
 /home/eclips/tools2/pkill
 
