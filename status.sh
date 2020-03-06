@@ -11,7 +11,7 @@ gamentrzaddr=Gftmt8hgzgNu6f1o85HMPuwTVBMSV2TYSt
 ginntrzaddr=Gftmt8hgzgNu6f1o85HMPuwTVBMSV2TYSt
 einntrzaddr=EfCkxbDFSn4X1VKMzyckyHaXLf4ithTGoM
 txscanamount=2000
-if ps aux | grep -v grep | grep iguana >/dev/null
+if ps aux | grep -v grep | grep iguana | grep -v force >/dev/null
 then 
     printf "${GREEN}%-9s${NC}" "iguana"
 else
