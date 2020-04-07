@@ -438,7 +438,7 @@ printf "\n"
 if ps aux | grep -v grep | grep aryacoind | grep -v walletreset >/dev/null; then
     balance="$(aryacoin-cli -rpcclienttimeout=15 getbalance 2>&1)"
     if [[ $balance =~ $isNumber ]]; then
-        printf "${GREEN}%-11s${NC}" "GameCredits"
+        printf "${GREEN}%-11s${NC}" "AYA"
         if (( $(echo "$balance > 0.1" | bc -l) )); then
             printf " - Funds: ${GREEN}%5.2f${NC}" $balance
         else
@@ -499,13 +499,13 @@ if ps aux | grep -v grep | grep aryacoind | grep -v walletreset >/dev/null; then
     txinfo=""
     lastntrztime=""
 else
-    printf "${RED}GameCredits Not Running${NC}"
+    printf "${RED}AYA Not Running${NC}"
 fi
 printf "\n"
 if ps aux | grep -v grep |grep komodod | grep MCL | grep -v walletreset >/dev/null; then
     balance="$(komodo-cli -ac_name=MCL -rpcclienttimeout=15 getbalance 2>&1)"
     if [[ $balance =~ $isNumber ]]; then
-        printf "${GREEN}%-11s${NC}" "GameCredits"
+        printf "${GREEN}%-11s${NC}" "Marmara"
         if (( $(echo "$balance > 0.1" | bc -l) )); then
             printf " - Funds: ${GREEN}%5.2f${NC}" $balance
         else
@@ -554,7 +554,7 @@ if ps aux | grep -v grep |grep komodod | grep MCL | grep -v walletreset >/dev/nu
             printf " - Speed3: ${GREEN}%2s${NC}" $speed
         fi
     else
-        printf "${YELLOW}AYA Loading${NC}"
+        printf "${YELLOW}Marmara Loading${NC}"
     fi
     balance=""
     listunspent=""
