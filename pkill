@@ -7,6 +7,6 @@ pkill -f iguana
 /home/eclips/hush3/src/hush-cli stop
 /home/eclips/AYAv2/src/aryacoin-cli stop
 /home/eclips/Marmara-v.1.0/src/komodo-cli -ac_name=MCL stop
-sleep 10
+sleep 20
 pkill -f komodod
 rm /home/eclips/nohup.out
