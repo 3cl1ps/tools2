@@ -28,4 +28,12 @@ repo=(${repos[GIN]})
 printf "\n${GR}>>>>>>> CHECKING GINCOIN${NC}\n"
 cd ${repo[0]} && git checkout ${repo[2]} && git pull && make -j8
 
+repo=(${repos[AYA]})
+printf "\n${GR}>>>>>>> CHECKING AYA${NC}\n"
+cd ${repo[0]} && git checkout ${repo[2]} && git pull && make -j8
+
+repo=(${repos[MCL]})
+printf "\n${GR}>>>>>>> CHECKING MCL${NC}\n"
+cd ${repo[0]} && git checkout ${repo[2]} && git pull && make -j8
+
 printf "\n"
