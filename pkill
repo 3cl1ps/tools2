@@ -5,6 +5,8 @@ pkill -f iguana
 /home/eclips/gincoin/src/gincoin-cli stop
 /home/eclips/einsteinium/src/einsteinium-cli stop
 /home/eclips/hush3/src/hush-cli stop
+/home/eclips/AYAv2/src/aryacoin-cli stop
+/home/eclips/Marmara-v.1.0/src/komodo-cli -ac_name=MCL stop
 sleep 10
 pkill -f komodod
 rm /home/eclips/nohup.out
