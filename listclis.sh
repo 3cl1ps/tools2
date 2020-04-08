@@ -5,28 +5,27 @@ cd "${BASH_SOURCE%/*}" || exit
 # e.g "KMD"
 specific_coin=$1
 
-chips_cli="chips-cli"
-game_cli="gamecredits-cli"
-einsteinium_cli="einsteinium-cli"
-gincoin_cli="gincoin-cli"
-komodo_cli="komodo-cli"
-hush_cli="hush-cli"
-
-if [[ -z "${specific_coin}" ]] || [[ "${specific_coin}" = "CHIPS" ]]; then
-  echo ${chips_cli}
+if [[ "${specific_coin}" = "CHIPS" ]]; then
+  echo chips-cli
 fi
-if [[ -z "${specific_coin}" ]] || [[ "${specific_coin}" = "GAME" ]]; then
-  echo ${game_cli}
+if [[ "${specific_coin}" = "GAME" ]]; then
+  echo gamecredits-cli
 fi
-if [[ -z "${specific_coin}" ]] || [[ "${specific_coin}" = "EMC2" ]]; then
-  echo ${einsteinium_cli}
+if [[ "${specific_coin}" = "EMC2" ]]; then
+  echo einsteinium-cli
 fi
-if [[ -z "${specific_coin}" ]] || [[ "${specific_coin}" = "GIN" ]]; then
-  echo ${gincoin_cli}
+if [[ "${specific_coin}" = "GIN" ]]; then
+  echo gincoin-cli
 fi
-if [[ -z "${specific_coin}" ]] || [[ "${specific_coin}" = "KMD" ]]; then
-  echo ${komodo_cli}
+if [[ "${specific_coin}" = "KMD" ]]; then
+  echo komodo-cli
 fi
-if [[ -z "${specific_coin}" ]] || [[ "${specific_coin}" = "HUSH3" ]]; then
-  echo ${hush_cli}
+if [[ "${specific_coin}" = "HUSH3" ]]; then
+  echo hush-cli
+fi
+if [[ "${specific_coin}" = "AYA" ]]; then
+  echo aryacoin-cli
+fi
+if [[ "${specific_coin}" = "MCL" ]]; then
+  echo komodo-cli -ac_name=MCL
 fi
