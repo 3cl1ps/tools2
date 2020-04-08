@@ -505,7 +505,7 @@ printf "\n"
 if ps aux | grep -v grep |grep komodod | grep MCL | grep -v walletreset >/dev/null; then
     balance="$(komodo-cli -ac_name=MCL -rpcclienttimeout=15 getbalance 2>&1)"
     if [[ $balance =~ $isNumber ]]; then
-        printf "${GREEN}%-11s${NC}" "Marmara"
+        printf "${GREEN}%-11s${NC}" "MCL"
         if (( $(echo "$balance > 0.1" | bc -l) )); then
             printf " - Funds: ${GREEN}%5.2f${NC}" $balance
         else
@@ -554,7 +554,7 @@ if ps aux | grep -v grep |grep komodod | grep MCL | grep -v walletreset >/dev/nu
             printf " - Speed3: ${GREEN}%2s${NC}" $speed
         fi
     else
-        printf "${YELLOW}Marmara Loading${NC}"
+        printf "${YELLOW}MCL Loading${NC}"
     fi
     balance=""
     listunspent=""
@@ -566,6 +566,6 @@ if ps aux | grep -v grep |grep komodod | grep MCL | grep -v walletreset >/dev/nu
     txinfo=""
     lastntrztime=""
 else
-    printf "${RED}Marmara Not Running${NC}"
+    printf "${RED}MCL Not Running${NC}"
 fi
 printf "\n"
