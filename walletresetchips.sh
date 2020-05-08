@@ -8,7 +8,7 @@ cli="chips-cli"
 wallet_file="${HOME}/.chips/wallet.dat"
 nn_address=$KMDADDRESS
 
-/home/eclips/install/walletreset.sh \
+/home/eclips/install/walletreset2.sh \
   "${coin}" \
   "${daemon}" \
   "${daemon_process_regex}" \
