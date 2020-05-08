@@ -8,7 +8,7 @@ cli="gamecredits-cli"
 wallet_file="${HOME}/.gamecredits/wallet.dat"
 nn_address=$GAMEADDRESS
 
-/home/eclips/install/walletreset.sh \
+/home/eclips/install/walletreset2.sh \
   "${coin}" \
   "${daemon}" \
   "${daemon_process_regex}" \
