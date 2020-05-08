@@ -8,7 +8,7 @@ cli="gincoin-cli"
 wallet_file="${HOME}/.gincoincore/wallet.dat"
 nn_address=$GAMEADDRESS
 
-/home/eclips/install/walletreset.sh \
+/home/eclips/install/walletreset2.sh \
   "${coin}" \
   "${daemon}" \
   "${daemon_process_regex}" \
