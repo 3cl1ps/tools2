@@ -9,7 +9,7 @@ cli="einsteinium-cli"
 wallet_file="${HOME}/.einsteinium/wallet.dat"
 nn_address=$EMC2ADDRESS
 
-/home/eclips/install/walletreset.sh \
+/home/eclips/install/walletreset2.sh \
   "${coin}" \
   "${daemon}" \
   "${daemon_process_regex}" \
