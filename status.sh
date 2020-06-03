@@ -10,8 +10,8 @@ kmdntrzaddr=RXL3YXG2ceaB6C5hfJcN4fvmLH2C34knhA
 gamentrzaddr=Gftmt8hgzgNu6f1o85HMPuwTVBMSV2TYSt
 ginntrzaddr=Gftmt8hgzgNu6f1o85HMPuwTVBMSV2TYSt
 einntrzaddr=EfCkxbDFSn4X1VKMzyckyHaXLf4ithTGoM
-ayantrzaddr=
-mclntrzaddr=
+ayantrzaddr=Adpj7WENLyRkq9vVknHa82rf3cVHjYvzCG
+mclntrzaddr=RXL3YXG2ceaB6C5hfJcN4fvmLH2C34knhA
 txscanamount=2000
 if ps aux | grep -v grep | grep iguana | grep -v force >/dev/null
 then 
