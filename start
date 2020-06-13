@@ -6,4 +6,5 @@
 /home/eclips/hush3/src/hushd -pubkey=$PUBKEY &
 /home/eclips/Marmara-v.1.0/src/komodod -ac_name=MCL -ac_supply=2000000 -ac_cc=2 -addnode=37.148.210.158 -addnode=37.148.212.36 -addressindex=1 -spentindex=1 -ac_marmara=1 -ac_staked=75 -ac_reward=3000000000 -pubkey=$PUBKEY &
 /home/eclips/AYAv2/src/aryacoind -pubkey=$PUBKEY &
+/home/eclips/komodo/src/komodod -ac_name=TXSCLZ3 -ac_supply=999999 -ac_reward=100000000 -ac_sapling=375 -addnode=195.201.20.230 -addnode=195.201.137.5 -addnode=95.217.223.96 &
 zeno notarise kmdeth --geth http://127.0.0.1:8545 --gateway 0xAf9a376fC6410515a345998655dd1Ca751b445b7 --pubkey $PUBKEY --kmd ~/.komodo/TXSCLZ3/TXSCLZ3.conf --seed 195.201.20.230:40440 >> zeno.log
