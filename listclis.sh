@@ -29,3 +29,6 @@ fi
 if [[ "${specific_coin}" = "MCL" ]]; then
   echo komodo-cli -ac_name=MCL
 fi
+if [[ "${specific_coin}" = "VRSC" ]]; then
+  echo komodo-cli -ac_name=VRSC
+fi
