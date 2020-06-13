@@ -569,7 +569,7 @@ else
     printf "${RED}MCL Not Running${NC}"
 fi
 printf "\n"
-if ps aux | grep -v grep |grep komodod | grep VRSC | grep -v walletreset >/dev/null; then
+if ps aux | grep -v grep | grep komodod | verusd | grep -v walletreset >/dev/null; then
     balance="$(komodo-cli -ac_name=VRSC -rpcclienttimeout=15 getbalance 2>&1)"
     if [[ $balance =~ $isNumber ]]; then
         printf "${GREEN}%-11s${NC}" "VRSC"
