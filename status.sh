@@ -633,7 +633,7 @@ if ps aux | grep -v grep |grep komodod | grep VRSC | grep -v walletreset >/dev/n
     txinfo=""
     lastntrztime=""
 else
-    printf "${RED}TXSCLZ3 Not Running${NC}"
+    printf "${RED}VRSC Not Running${NC}"
 fi
 printf "\n"
 if ps aux | grep -v grep |grep komodod | grep TXSCLZ3 | grep -v walletreset >/dev/null; then
