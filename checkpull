@@ -39,4 +39,8 @@ repo=(${repos[MCL]})
 printf "\n${GR}>>>>>>> CHECKING MCL${NC}\n"
 cd ${repo[0]} && git checkout ${repo[2]} && git pull && make -j8
 
+repo=(${repos[VRSC]})
+printf "\n${GR}>>>>>>> CHECKING VERUS${NC}\n"
+cd ${repo[0]} && git checkout ${repo[2]} && git pull && make -j8 || { ./zcutil/build.sh -j8; }
+
 printf "\n"
