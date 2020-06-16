@@ -37,15 +37,18 @@ fi
 
 if [[ ${coin} = "GAME" || ${coin} = "EMC2" ||  ${coin} = "AYA" ]] ; then
     amount=0.00100000
+else
+    amount=0.00010000
 fi
-amount=0.00010000
 
 unlocked_utxos=$(${cli} listunspent | grep $amount | wc -l)
 locked_utxos=$(${cli} listlockunspent | jq -r length)
 utxo_count=$(calc ${unlocked_utxos}+${locked_utxos})
 
 utxo_required=$(calc ${target_utxo_count}-${utxo_count})
-
+echo $cli
+echo $amount
+echo $unlocked_utxos :: $locked_utxos :: $utxo_count
 if [[ ${utxo_count} -le ${split_threshold} ]]; then
     echo "[${coin}] Splitting ${utxo_required} extra UTXOs"
     json=$(/home/eclips/tools2/acsplit ${coin} ${utxo_required})
