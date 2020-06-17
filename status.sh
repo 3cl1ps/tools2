@@ -577,7 +577,7 @@ if ps aux | grep -v grep | grep verusd | grep -v walletreset >/dev/null; then
         else
             printf " - Funds: ${RED}%5.2f${NC}" $balance
         fi
-        listunspent="$(komodo-cli -ac_name=VRSC -rpcclienttimeout=15 listunspent | grep .00009850 | wc -l)"
+        listunspent="$(komodo-cli -ac_name=VRSC -rpcclienttimeout=15 listunspent | grep .00010000 | wc -l)"
         if [[ $listunspent =~ $isNumber ]]; then
             if [[ "$listunspent" -lt "15" ]] || [[ "$listunspent" -gt "50" ]]; then
                 printf  " - UTXOs: ${RED}%3s${NC}" $listunspent
@@ -585,7 +585,7 @@ if ps aux | grep -v grep | grep verusd | grep -v walletreset >/dev/null; then
                 printf  " - UTXOs: ${GREEN}%3s${NC}" $listunspent
             fi
         fi
-        countunspent="$(komodo-cli -ac_name=VRSC -rpcclienttimeout=15 listunspent|grep amount |awk '{print $2}'|sed s/.$//|awk '$1 < 0.00009850'|wc -l)"
+        countunspent="$(komodo-cli -ac_name=VRSC -rpcclienttimeout=15 listunspent|grep amount |awk '{print $2}'|sed s/.$//|awk '$1 < 0.00010000'|wc -l)"
         if [[ $countunspent =~ $isNumber ]]; then
             if [ "$countunspent" -gt "0" ]
             then
