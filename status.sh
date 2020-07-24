@@ -510,7 +510,7 @@ if ps aux | grep -v grep |grep komodod | grep MCL | grep -v walletreset >/dev/nu
         else
             printf " - Funds: ${RED}%5.2f${NC}" $balance
         fi
-        listunspent="$(komodo-cli -ac_name=MCL -rpcclienttimeout=15 listunspent | grep .00100000 | wc -l)"
+        listunspent="$(komodo-cli -ac_name=MCL -rpcclienttimeout=15 listunspent | grep .00010000 | wc -l)"
         if [[ $listunspent =~ $isNumber ]]; then
             if [[ "$listunspent" -lt "15" ]] || [[ "$listunspent" -gt "50" ]]; then
                 printf  " - UTXOs: ${RED}%3s${NC}" $listunspent
