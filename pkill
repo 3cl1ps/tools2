@@ -2,7 +2,6 @@ pkill -f iguana
 /home/eclips/komodo/src/komodo-cli stop
 /home/eclips/chips3/src/chips-cli stop
 /home/eclips/game/src/gamecredits-cli stop
-/home/eclips/gincoin/src/gincoin-cli stop
 /home/eclips/einsteinium/src/einsteinium-cli stop
 /home/eclips/hush3/src/hush-cli stop
 /home/eclips/AYAv2/src/aryacoin-cli stop
