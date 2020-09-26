@@ -24,9 +24,6 @@ repo=(${repos[EMC2]})
 printf "\n${GR}>>>>>>> CHECKING EMC2${NC}\n"
 cd ${repo[0]} && git checkout ${repo[2]} && git pull && make -j8
 
-printf "\n${GR}>>>>>>> CHECKING zeno${NC}\n"
-cd /home/eclips/zeno && git pull && stack install
-
 repo=(${repos[AYA]})
 printf "\n${GR}>>>>>>> CHECKING AYA${NC}\n"
 cd ${repo[0]} && git checkout ${repo[2]} && git pull && make -j8
