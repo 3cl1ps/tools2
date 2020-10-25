@@ -567,7 +567,7 @@ printf "\n"
 if ps aux | grep -v grep |grep gleecbtc | grep -v walletreset >/dev/null; then
     balance="$(gleecbtc-cli -rpcclienttimeout=15 getbalance 2>&1)"
     if [[ $balance =~ $isNumber ]]; then
-        printf "${GREEN}%-11s${NC}" "TXSCLZ3"
+        printf "${GREEN}%-11s${NC}" "GLEEC"
         if (( $(echo "$balance > 0.1" | bc -l) )); then
             printf " - Funds: ${GREEN}%5.2f${NC}" $balance
         else
@@ -597,24 +597,24 @@ if ps aux | grep -v grep |grep gleecbtc | grep -v walletreset >/dev/null; then
         else
             printf " - WSize: ${GREEN}%5s${NC}" $OUTSTR
         fi
-        TIME=$((time gleecbtc-cli listunspent) 2>&1 >/dev/null)
-        if [[ "$TIME" > "0.05" ]]; then
-            printf " - Time: ${RED}%3ss${NC}" $TIME          
-        else
-            printf " - Time: ${GREEN}%3ss${NC}" $TIME
-        fi
-        txinfo=$(gleecbtc-cli listtransactions "" $txscanamount)
-        lastntrztime=$(echo $txinfo | jq -r --arg address "$gleecntrzaddr" '[.[] | select(.address==$address)] | sort_by(.time) | last | "\(.time)"') 
-        printf " - LastN: ${GREEN}%6s${NC}" $(timeSince $lastntrztime)
+        #TIME=$((time gleecbtc-cli listunspent) 2>&1 >/dev/null)
+        #if [[ "$TIME" > "0.05" ]]; then
+         #   printf " - Time: ${RED}%3ss${NC}" $TIME          
+        #else
+        #    printf " - Time: ${GREEN}%3ss${NC}" $TIME
+        #fi
+        #txinfo=$(gleecbtc-cli listtransactions "" $txscanamount)
+        #lastntrztime=$(echo $txinfo | jq -r --arg address "$gleecntrzaddr" '[.[] | select(.address==$address)] | sort_by(.time) | last | "\(.time)"') 
+        #printf " - LastN: ${GREEN}%6s${NC}" $(timeSince $lastntrztime)
         #speed
-        now=$(date +%s)
-        window=$(echo "$now - 3*3600" | bc -l)
-        speed=$(echo $txinfo | jq -r --arg address "$kmdntrzaddr" --argjson window "$window" '[.[] | select(.address==$address and .time > $window)] | length')
-        if (( $speed < 1 )); then
-            printf " - Speed3: ${RED}%2s${NC}" $speed  
-        else
-            printf " - Speed3: ${GREEN}%2s${NC}" $speed
-        fi
+        #now=$(date +%s)
+        #window=$(echo "$now - 3*3600" | bc -l)
+       # speed=$(echo $txinfo | jq -r --arg address "$kmdntrzaddr" --argjson window "$window" '[.[] | select(.address==$address and .time > $window)] | length')
+        #if (( $speed < 1 )); then
+        #    printf " - Speed3: ${RED}%2s${NC}" $speed  
+        #else
+        #    printf " - Speed3: ${GREEN}%2s${NC}" $speed
+        #fi
     else
         printf "${YELLOW}MCL Loading${NC}"
     fi
