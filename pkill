@@ -3,8 +3,8 @@ pkill -f iguana
 /home/eclips/chips3/src/chips-cli stop
 /home/eclips/game/src/gamecredits-cli stop
 /home/eclips/einsteinium/src/einsteinium-cli stop
-/home/eclips/hush3/src/hush-cli stop
 /home/eclips/AYAv2/src/aryacoin-cli stop
+/home/eclips/GleecBTC-FullNode-Win-Mac-Linux/src/gleecbtc-cli stop
 /home/eclips/Marmara-v.1.0/src/komodo-cli -ac_name=MCL stop
 /home/eclips/komodo/src/komodo-cli -ac_name=TXSCLZ3 stop
 /home/eclips/komodo/src/komodo-cli -ac_name=VRSC stop
