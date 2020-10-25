@@ -564,8 +564,8 @@ else
     printf "${RED}VRSC Not Running${NC}"
 fi
 printf "\n"
-if ps aux | grep -v grep |grep komodod | grep TXSCLZ3 | grep -v walletreset >/dev/null; then
-    balance="$(komodo-cli -ac_name=TXSCLZ3 -rpcclienttimeout=15 getbalance 2>&1)"
+if ps aux | grep -v grep |grep gleecbtc | grep -v walletreset >/dev/null; then
+    balance="$(gleecbtc-cli -rpcclienttimeout=15 getbalance 2>&1)"
     if [[ $balance =~ $isNumber ]]; then
         printf "${GREEN}%-11s${NC}" "TXSCLZ3"
         if (( $(echo "$balance > 0.1" | bc -l) )); then
@@ -573,7 +573,7 @@ if ps aux | grep -v grep |grep komodod | grep TXSCLZ3 | grep -v walletreset >/de
         else
             printf " - Funds: ${RED}%5.2f${NC}" $balance
         fi
-        listunspent="$(komodo-cli -ac_name=TXSCLZ3 -rpcclienttimeout=15 listunspent | grep .00009850 | wc -l)"
+        listunspent="$(gleecbtc-cli -rpcclienttimeout=15 listunspent | grep .00009850 | wc -l)"
         if [[ $listunspent =~ $isNumber ]]; then
             if [[ "$listunspent" -lt "15" ]] || [[ "$listunspent" -gt "50" ]]; then
                 printf  " - UTXOs: ${RED}%3s${NC}" $listunspent
@@ -581,7 +581,7 @@ if ps aux | grep -v grep |grep komodod | grep TXSCLZ3 | grep -v walletreset >/de
                 printf  " - UTXOs: ${GREEN}%3s${NC}" $listunspent
             fi
         fi
-        countunspent="$(komodo-cli -ac_name=TXSCLZ3 -rpcclienttimeout=15 listunspent|grep amount |awk '{print $2}'|sed s/.$//|awk '$1 < 0.00009850'|wc -l)"
+        countunspent="$(gleecbtc-cli -rpcclienttimeout=15 listunspent|grep amount |awk '{print $2}'|sed s/.$//|awk '$1 < 0.00009850'|wc -l)"
         if [[ $countunspent =~ $isNumber ]]; then
             if [ "$countunspent" -gt "0" ]
             then
@@ -590,21 +590,21 @@ if ps aux | grep -v grep |grep komodod | grep TXSCLZ3 | grep -v walletreset >/de
                 printf  " - Dust: ${GREEN}%3s${NC}" $countunspent
             fi
         fi
-        SIZE=$(stat --printf="%s" /home/eclips/.komodo/TXSCLZ3/wallet.dat)
+        SIZE=$(stat --printf="%s" /home/eclips/.gleecbtc/wallet.dat)
         OUTSTR=$(echo $SIZE | numfmt --to=si --suffix=B)
         if [ "$SIZE" -gt "4000000" ]; then
             printf " - WSize: ${RED}%5s${NC}" $OUTSTR           
         else
             printf " - WSize: ${GREEN}%5s${NC}" $OUTSTR
         fi
-        TIME=$((time komodo-cli -ac_name=TXSCLZ3 listunspent) 2>&1 >/dev/null)
+        TIME=$((time gleecbtc-cli listunspent) 2>&1 >/dev/null)
         if [[ "$TIME" > "0.05" ]]; then
             printf " - Time: ${RED}%3ss${NC}" $TIME          
         else
             printf " - Time: ${GREEN}%3ss${NC}" $TIME
         fi
-        txinfo=$(komodo-cli -ac_name=TXSCLZ3 listtransactions "" $txscanamount)
-        lastntrztime=$(echo $txinfo | jq -r --arg address "$kmdntrzaddr" '[.[] | select(.address==$address)] | sort_by(.time) | last | "\(.time)"') 
+        txinfo=$(gleecbtc-cli listtransactions "" $txscanamount)
+        lastntrztime=$(echo $txinfo | jq -r --arg address "$gleecntrzaddr" '[.[] | select(.address==$address)] | sort_by(.time) | last | "\(.time)"') 
         printf " - LastN: ${GREEN}%6s${NC}" $(timeSince $lastntrztime)
         #speed
         now=$(date +%s)
