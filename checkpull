@@ -16,10 +16,6 @@ repo=(${repos[GAME]})
 printf "\n${GR}>>>>>>> CHECKING GAME${NC}\n"
 cd ${repo[0]} && git checkout ${repo[2]} && git pull && make -j8
 
-repo=(${repos[HUSH3]})
-printf "\n${GR}>>>>>>> CHECKING HUSH3${NC}\n"
-cd ${repo[0]} && git checkout ${repo[2]} && git pull && make -j8 || { git clean -fdx && ./zcutil/build.sh -j8; }
-
 repo=(${repos[EMC2]})
 printf "\n${GR}>>>>>>> CHECKING EMC2${NC}\n"
 cd ${repo[0]} && git checkout ${repo[2]} && git pull && make -j8
