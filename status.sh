@@ -505,7 +505,7 @@ if ps aux | grep -v grep |grep gleecbtc | grep -v walletreset >/dev/null; then
         else
             printf " - Funds: ${RED}%5.2f${NC}" $balance
         fi
-        listunspent="$(gleecbtc-cli -rpcclienttimeout=15 listunspent | grep .00009850 | wc -l)"
+        listunspent="$(gleecbtc-cli -rpcclienttimeout=15 listunspent | grep .00010000 | wc -l)"
         if [[ $listunspent =~ $isNumber ]]; then
             if [[ "$listunspent" -lt "15" ]] || [[ "$listunspent" -gt "50" ]]; then
                 printf  " - UTXOs: ${RED}%3s${NC}" $listunspent

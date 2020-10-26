@@ -14,14 +14,8 @@ fi
 if [[ "${specific_coin}" = "EMC2" ]]; then
   echo einsteinium-cli
 fi
-if [[ "${specific_coin}" = "GIN" ]]; then
-  echo gincoin-cli
-fi
 if [[ "${specific_coin}" = "KMD" ]]; then
   echo komodo-cli
-fi
-if [[ "${specific_coin}" = "HUSH3" ]]; then
-  echo hush-cli
 fi
 if [[ "${specific_coin}" = "AYA" ]]; then
   echo aryacoin-cli
@@ -31,4 +25,7 @@ if [[ "${specific_coin}" = "MCL" ]]; then
 fi
 if [[ "${specific_coin}" = "VRSC" ]]; then
   echo komodo-cli -ac_name=VRSC
+fi
+if [[ "${specific_coin}" = "GLEEC" ]]; then
+  echo gleecbtc-cli
 fi
