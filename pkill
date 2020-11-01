@@ -9,4 +9,5 @@ pkill -f iguana
 /home/eclips/komodo/src/komodo-cli -ac_name=VRSC stop
 sleep 20
 pkill -f komodod
+pkill mine.sh
 rm /home/eclips/nohup.out
