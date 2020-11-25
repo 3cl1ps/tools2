@@ -629,3 +629,4 @@ if ps aux | grep -v grep |grep powerblockcoin | grep -v walletreset >/dev/null; 
 else
     printf "${RED}PBC Not Running${NC}"
 fi
+printf "\n"
