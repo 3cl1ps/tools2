@@ -29,3 +29,6 @@ fi
 if [[ "${specific_coin}" = "GLEEC" ]]; then
   echo gleecbtc-cli
 fi
+if [[ "${specific_coin}" = "PBC" ]]; then
+  echo powerblockcoin-cli
+fi
