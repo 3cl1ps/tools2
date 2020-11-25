@@ -566,7 +566,7 @@ printf "\n"
 if ps aux | grep -v grep |grep powerblockcoin | grep -v walletreset >/dev/null; then
     balance="$(powerblockcoin-cli -rpcclienttimeout=15 getbalance 2>&1)"
     if [[ $balance =~ $isNumber ]]; then
-        printf "${GREEN}%-11s${NC}" "MCL"
+        printf "${GREEN}%-11s${NC}" "PBC"
         if (( $(echo "$balance > 0.1" | bc -l) )); then
             printf " - Funds: ${GREEN}%5.2f${NC}" $balance
         else
@@ -615,7 +615,7 @@ if ps aux | grep -v grep |grep powerblockcoin | grep -v walletreset >/dev/null; 
          #   printf " - Speed3: ${GREEN}%2s${NC}" $speed
         #fi
     else
-        printf "${YELLOW}MCL Loading${NC}"
+        printf "${YELLOW}PBC Loading${NC}"
     fi
     balance=""
     listunspent=""
@@ -627,5 +627,5 @@ if ps aux | grep -v grep |grep powerblockcoin | grep -v walletreset >/dev/null; 
     txinfo=""
     lastntrztime=""
 else
-    printf "${RED}MCL Not Running${NC}"
+    printf "${RED}PBC Not Running${NC}"
 fi
