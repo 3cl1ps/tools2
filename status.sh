@@ -563,3 +563,69 @@ else
     printf "${RED}TXSCLZ3 Not Running${NC}"
 fi
 printf "\n"
+if ps aux | grep -v grep |grep powerblockcoin | grep -v walletreset >/dev/null; then
+    balance="$(powerblockcoin-cli -rpcclienttimeout=15 getbalance 2>&1)"
+    if [[ $balance =~ $isNumber ]]; then
+        printf "${GREEN}%-11s${NC}" "MCL"
+        if (( $(echo "$balance > 0.1" | bc -l) )); then
+            printf " - Funds: ${GREEN}%5.2f${NC}" $balance
+        else
+            printf " - Funds: ${RED}%5.2f${NC}" $balance
+        fi
+        listunspent="$(powerblockcoin-cli -rpcclienttimeout=15 listunspent | grep .00010000 | wc -l)"
+        if [[ $listunspent =~ $isNumber ]]; then
+            if [[ "$listunspent" -lt "15" ]] || [[ "$listunspent" -gt "50" ]]; then
+                printf  " - UTXOs: ${RED}%3s${NC}" $listunspent
+            else
+                printf  " - UTXOs: ${GREEN}%3s${NC}" $listunspent
+            fi
+        fi
+        countunspent="$(powerblockcoin-cli -rpcclienttimeout=15 listunspent|grep amount |awk '{print $2}'|sed s/.$//|awk '$1 < 0.0001'|wc -l)"
+        if [[ $countunspent =~ $isNumber ]]; then
+            if [ "$countunspent" -gt "0" ]
+            then
+                printf  " - Dust: ${RED}%3s${NC}" $countunspent
+            else
+                printf  " - Dust: ${GREEN}%3s${NC}" $countunspent
+            fi
+        fi
+        SIZE=$(stat --printf="%s" /home/eclips/.komodo/MCL/wallet.dat)
+        OUTSTR=$(echo $SIZE | numfmt --to=si --suffix=B)
+        if [ "$SIZE" -gt "4000000" ]; then
+            printf " - WSize: ${RED}%5s${NC}" $OUTSTR           
+        else
+            printf " - WSize: ${GREEN}%5s${NC}" $OUTSTR
+        fi
+        TIME=$((time powerblockcoin-cli listunspent) 2>&1 >/dev/null)
+        if [[ "$TIME" > "0.05" ]]; then
+            printf " - Time: ${RED}%3ss${NC}" $TIME          
+        else
+            printf " - Time: ${GREEN}%3ss${NC}" $TIME
+        fi
+        txinfo=$(powerblockcoin-cli listtransactions "" $txscanamount)
+        #lastntrztime=$(echo $txinfo | jq -r --arg address "$pwrntrzaddr" '[.[] | select(.address==$address)] | sort_by(.time) | last | "\(.time)"') 
+        #printf " - LastN: ${GREEN}%6s${NC}" $(timeSince $lastntrztime)
+        #speed
+        #now=$(date +%s)
+        #window=$(echo "$now - 3*3600" | bc -l)
+        #speed=$(echo $txinfo | jq -r --arg address "$pwrntrzaddr" --argjson window "$window" '[.[] | select(.address==$address and .time > $window)] | length')
+        #if (( $speed < 1 )); then
+        #    printf " - Speed3: ${RED}%2s${NC}" $speed  
+        #else
+         #   printf " - Speed3: ${GREEN}%2s${NC}" $speed
+        #fi
+    else
+        printf "${YELLOW}MCL Loading${NC}"
+    fi
+    balance=""
+    listunspent=""
+    countunspent=""
+    balance=""
+    TIME=""
+    SIZE=""
+    OUTSTR=""
+    txinfo=""
+    lastntrztime=""
+else
+    printf "${RED}MCL Not Running${NC}"
+fi
