@@ -18,5 +18,3 @@ while [[ ${started} -eq 0 ]]; do
 done
 #iguana
 /home/eclips/tools2/otary
-sleep 120
-/home/eclips/mine.sh &
